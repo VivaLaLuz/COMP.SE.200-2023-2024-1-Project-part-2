@@ -61,3 +61,13 @@ test('memoize cache is accessible', () => {
     fn.cache.set(1, 999);
     expect(fn(1, 2)).toBe(999);
 });
+
+test('memoize gives type error when passed a non-function', () => {
+    expect(() => memoize(1)).toThrow(TypeError);
+    expect(() => memoize("")).toThrow(TypeError);
+    expect(() => memoize({})).toThrow(TypeError);
+    expect(() => memoize([])).toThrow(TypeError);
+    expect(() => memoize(null)).toThrow(TypeError);
+    expect(() => memoize(undefined)).toThrow(TypeError);
+    expect(() => memoize()).toThrow(TypeError);
+});
