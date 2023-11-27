@@ -16,6 +16,10 @@ test("Normal case, remove a single value from boolean array", () => {
     expect(difference([true, false], [true])).toEqual([false]);
 });
 
+test("Normal case, remove values from a mixed array", () => {
+    expect(difference([1, 'b', 3, 'd', 5], [1, 'b'])).toEqual([3, 'd', 5]);
+});
+
 test("Normal case, remove values from custom object array", () => {
     const obj1 = {name: 'John', age: 25};
     const obj2 = {name: 'Jane', age: 30};
@@ -64,4 +68,28 @@ test("Give array with null values and remove them, return cleaned array", () => 
 
 test('returns [] when passed 2 empty arrays', () => {
     expect(difference([], [])).toEqual([]);
+});
+
+
+//Below are listed the AI created complements to the tests
+
+// Test with an empty array, expect to return the same array
+test("Give an empty array, expect to return the same array", () => {
+    expect(difference([], [1, 2, 3])).toEqual([]);
+});
+
+// Test with undefined values in the array, expect to return an array without undefined values
+test("Difference with undefined values, return an array without undefined values", () => {
+    expect(difference([1, 2, undefined, 4, undefined], [undefined])).toEqual([1, 2, 4]);
+});
+
+// Test with a array that has no common elements, expect to return the original array
+test("Give a array that has no common elements, expect to return the original array", () => {
+    expect(difference([1, 2, 3, 4, 5], [6, 7, 8, 9, 10])).toEqual([1, 2, 3, 4, 5]);
+});
+
+// Test with two identical arrays, expect to return an empty array
+test("Give two identical arrays, expect to return an empty array", () => {
+    const arr = [1, 2, 3, 4, 5];
+    expect(difference(arr, arr)).toEqual([]);
 });
