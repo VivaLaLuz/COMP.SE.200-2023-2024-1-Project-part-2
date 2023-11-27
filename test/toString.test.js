@@ -13,6 +13,10 @@ test('toString should convert an array to a comma-separated string', () => {
     expect(toString([1, 2, 3])).toBe('1,2,3')
 })
 
+test('toString should convert an array with null values to a comma-separated string', () => {
+    expect(toString([null, null, null])).toBe('null,null,null')
+})
+
 test('toString should convert a string to the same string', () => {
     expect(toString('hello')).toBe('hello')
 })
