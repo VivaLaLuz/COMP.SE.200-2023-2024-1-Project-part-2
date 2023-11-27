@@ -42,7 +42,7 @@ test("Give no predicate, expect to throw and error", () => {
 });
 
 test("Give no inputs, expect to return an empty array", () => {
-    expect(filter()).toEqual([[]]);
+    expect(filter()).toEqual([]);
 });
 
 
@@ -51,7 +51,7 @@ test("Give no inputs, expect to return an empty array", () => {
 // Test with an empty array, expect to return an empty array
 test("Give an empty array, expect to return an empty array", () => {
     const fn = (value) => value > 3;
-    expect(filter([], fn)).toEqual([[]]);
+    expect(filter([], fn)).toEqual([]);
 });
 
 // Test with undefined values in the array, expect to return an array without undefined values
@@ -63,7 +63,7 @@ test("Filter out undefined values, return an array without undefined values", ()
 // Test with a predicate that always returns false, expect to return an empty array
 test("Give a predicate that always returns false, expect to return an empty array", () => {
     const fn = (value) => false;
-    expect(filter([1, 2, 3, 4, 5], fn)).toEqual([[]]);
+    expect(filter([1, 2, 3, 4, 5], fn)).toEqual([]);
 });
 
 // Test with a predicate that always returns true, expect to return the original array
